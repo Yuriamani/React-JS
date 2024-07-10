@@ -1,39 +1,30 @@
-import { useEffect, useState } from "react";
-import Background from "./Components/Background/Background";
-import Hero from "./Components/Hero/Hero";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import Navbar from "./Components/Body/Navbar";
+import About from './Components/Body/About';
+import Contact from './Components/Body/Contact';
+import Home from './Components/Body/Home';
+import Footer from './Components/Body/Footer';
+import Pricing from './Components/Body/Pricing';
+import Features from './Components/Body/Features';
 
 const App = () => {
-  let heroData = [
-    {text1:"Dive into",text2:"what you love"},
-    {text1:"Indulge",text2:"your passions"},
-    {text1:"Give in to",text2:"your passions"},
-  ] 
-  const [heroCount,setHeroCount] = useState(0);
-  const [playStatus,setPlayStatus] = useState(false);
-
-  useEffect(()=>{
-    setInterval(() => {
-     setHeroCount((count)=>{return count===2?0:count+1})
-     }, 3000);
-    },[])
- 
-
-
-
   return (
-    <div>
-       <Background playStatus={playStatus} heroCount={heroCount}/>
-       {/* <Navbar /> */}
-       <Hero
-       setPlayStatus={setPlayStatus}
-       heroData={heroData[heroCount]}
-       heroCount={heroCount}
-       setHeroCount={setHeroCount}
-       playStatus={playStatus}
-       />
-    </div>
-  )
-
+    <Router>
+        <div className="App">
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/features" element={<Features />} /> 
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />               
+            </Routes>
+            <Footer />
+        </div>
+    </Router>
+);
 }
 
 export default App

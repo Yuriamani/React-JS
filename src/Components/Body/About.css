@@ -1,0 +1,36 @@
+.about-container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-section {
+    display: flex;
+    justify-content: center;
+}
+
+.about-content {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-text {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-text:last-child {
+    margin-bottom: 0;
+}
